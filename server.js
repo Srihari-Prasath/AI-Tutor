@@ -11,10 +11,13 @@ const {
 const { GoogleAIFileManager } = require("@google/generative-ai/server");
 
 const app = express();
+app.set('view engine', 'ejs'); 
+app.use(express.static('views'));
 const server = http.createServer(app);
 const io = new Server(server);
 
 const apiKey = "AIzaSyBnkyya_DCnWvkqPp6-ja0ZFYfU3r0c0ZQ"; // Replace with your actual API key
+
 const genAI = new GoogleGenerativeAI(apiKey);
 const fileManager = new GoogleAIFileManager(apiKey);
 
@@ -37,7 +40,7 @@ const generationConfig = {
 const sessionMemory = {};
 
 // Customize the bot's name
-const botName = "TutorBot";
+const botName = "Ai Tutor";
 
 // Serve static files (including index.html)
 app.use(express.static(__dirname));
@@ -78,7 +81,10 @@ io.on("connection", (socket) => {
     // Ensure the response does not reveal internal details
     const filteredResponse = result.response.text().replace(/google|api|generative ai|gemini/gi, "TutorBot");
 
-    socket.emit("reply", filteredResponse);
+    // Format the response to make it more readable
+    const formattedResponse = formatResponse(filteredResponse);
+
+    socket.emit("reply", formattedResponse);
   });
 
   socket.on("disconnect", () => {
@@ -88,6 +94,43 @@ io.on("connection", (socket) => {
     delete sessionMemory[socket.id];
   });
 });
+
+
+
+function formatResponse(responseText) {
+  const replacements = { "gemini": "Ai-tutor" };
+  let formattedResponse = responseText;
+
+  for (const [key, value] of Object.entries(replacements)) {
+    formattedResponse = formattedResponse.replace(new RegExp(key, 'gi'), value);
+  }
+
+  const lines = formattedResponse.split('\n');
+  formattedResponse = '';
+
+  lines.forEach(line => {
+    if (line.includes('**')) {
+      let segments = line.split('**');
+      segments = segments.map((segment, index) => {
+        if (index % 2 === 1) {
+          return `<b>${segment}</b>`;
+        }
+        return segment;
+      });
+      line = segments.join('');
+    }
+    formattedResponse += `${line}<br>`;
+  });
+
+  return formattedResponse;
+}
+
+app.get('/main',(req,res)=>{
+  res.render('intro')
+})
+
+
+
 
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {

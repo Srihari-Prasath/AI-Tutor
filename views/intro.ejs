@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ai Tutor</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+  <style>
+  .main{
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  header{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background: linear-gradient(#2C6E49, #4CAF50);
+    margin-bottom: 0.6rem;
+    margin-top: 0.2rem;
+    border-bottom: 2px solid #121212;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.3);
+  }
+  .sectionimg img{
+    width: 100%;
+    transform: scale(0.99);
+    max-height: 85vh;
+    filter: blur(1.7px);
+    transition: 0.3s;
+  }
+  .sectionimg img:hover{
+   transform: scale(1.001);
+   filter: blur(1px);
+  }
+  .content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white !important;
+    text-align: center;
+    padding: 10px;
+    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.3));
+  }
+  .content h2,.content h3{
+    padding: 5px;
+    -webkit-text-stroke: 1px #121212;
+  }
+  .content button{
+    padding: 2px 10px;
+    font-size: 20px;
+    margin-top: 1rem;
+    background: linear-gradient(#4CAF50,#58cc8a);
+    border: 1px solid #121212;
+    border-radius: 4px;
+  }
+  .main-content{
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .line{
+    background: #2C6E49;
+    height: 3px;
+   width:60px;
+  }
+  p{
+    text-align: justify;
+  }
+  .start{
+    display: flex;
+    justify-content: center;
+  }
+  .start button{
+    padding: 2px 10px;
+    font-size: 20px;
+    margin-top: 1rem;
+    background: linear-gradient(#4CAF50,#58cc8a);
+    border: 1px solid #121212;
+    border-radius: 4px;
+
+  }
+  footer{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background: linear-gradient(#2C6E49, #4CAF50);
+   color: white !important;
+    margin-top: 2rem;
+    border-bottom: 2px solid #121212;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.3);
+  }
+  button{
+    outline: none !important;
+  }
+  </style>
+</head>
+<body>
+    <div class="main">
+       <header>
+        <div class="title">
+            <h2>Ai Tutor</h2>
+        </div>
+       </header>
+       <main>
+        <div class="sectionimg">
+            <img src="./bg.png" alt="">
+            
+        </div>
+
+        <div class="content" >
+            <h2>Welcome to AI Tutor, your interactive learning assistant!</h2>
+            <h3>Empowering Knowledge Through Conversation</h3>
+            <div class="btnsection">
+                <a href="#section"><button>Explore</button></a>
+            </div>
+        </div>
+       </main>
+       <section id="section">
+        <div class="main-content">
+            <h2>AI Tutor Chatbot</h2>
+            <div class="line"></div>
+        </div>
+        
+        <div class="sub-content">
+            <p>AI Tutor Chatbot offers a seamless, interactive experience for users seeking information and assistance, making learning engaging and efficient with real-time responses and contextual understanding.</p>
+        </div>
+        <div class="sub-content">
+            <p>
+                <ul>
+                    <li><strong>Real-Time Communication:</strong> The chatbot allows users to communicate in real time, providing immediate responses to their queries.</li>
+                    <li><strong>Customizable Bot Personality:</strong> The chatbot, named Ai Tutor, is designed to offer helpful and friendly interactions, making it feel like a personal assistant.</li>
+                    <li><strong>Contextual Understanding:</strong> The bot maintains context across sessions, ensuring continuity and relevance in conversations.</li>
+                </ul>
+            </p>
+            <div class="start">
+               <a href="/"> <button>Start Learning</button></a>
+            </div>
+        </div>
+       </section>
+       <footer>
+        <p>© 2024 AI Tutor Chatbot. All rights reserved.</p>
+    </footer>
+    </div>
+
+</body>
+</html>

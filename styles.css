@@ -76,7 +76,7 @@ button:hover {
 .message {
     padding: 15px;
     margin: 5px 0;
-    border-radius: 10px;
+    border-radius: 5px !important;
     max-width: 80%;
     word-wrap: break-word;
 }
@@ -91,4 +91,6 @@ button:hover {
     align-self: flex-start;
     background-color: #f1f0f0;
     color: #000;
+    border: 1px solid #121112 !important;
+    border-radius: 5px !important;
 }
